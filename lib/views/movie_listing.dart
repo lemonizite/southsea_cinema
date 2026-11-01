@@ -13,6 +13,7 @@ class MovieListing extends StatefulWidget {
 
 class _MovieListingState extends State<MovieListing> {
   int _ticketQuantity = 1;
+  String _bookingMessage = '';
 
   void _setQuantity(int? value) {
     if(value != null) {
@@ -21,6 +22,10 @@ class _MovieListingState extends State<MovieListing> {
     else {
       throw FormatException('Null value selected!');
     }
+  }
+
+  void _setBookingMessage() {
+    setState(() => _bookingMessage = 'Added $_ticketQuantity tickets to order.');
   }
 
   @override
@@ -33,8 +38,7 @@ class _MovieListingState extends State<MovieListing> {
         elevation: 0,
       ),
       drawer: const NavDrawer(),
-      body: Container(
-        child: Column(
+      body: Column(
           children: [
             Text('The Matrix (1999)', style: cinemaBodyStyle),
             Text('A 1999 science fiction action film directed by the Wachowskis', style: cinemaBodyStyle),
@@ -49,13 +53,13 @@ class _MovieListingState extends State<MovieListing> {
               ],
             ),
             ElevatedButton(
-              onPressed: () => print('Ticket quantity selected: $_ticketQuantity'), 
+              onPressed: () => _setBookingMessage(), 
               child: Text('Add to order'),
             ),
-            Text('(Ticket Quantity: $_ticketQuantity)', style: cinemaBodyStyle)
+            Text('(Ticket Quantity: $_ticketQuantity)', style: cinemaBodyStyle),
+            Text(_bookingMessage, style: cinemaBodyStyle),
           ],
         ),
-      ),
-    );
+      );
   }
 }
