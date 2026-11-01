@@ -15,7 +15,18 @@ class MovieListing extends StatelessWidget {
         elevation: 0,
       ),
       drawer: const NavDrawer(),
-      body: const SizedBox.shrink(),
+      body: Container(
+        child: Column(
+          children: [
+            Text('The Matrix', style: cinemaBodyStyle),
+            Text('A 1999 science fiction action film directed by the Wachowskis', style: cinemaBodyStyle),
+            ElevatedButton(
+              onPressed: () => print('Add to order button pressed!'), 
+              child: Text('Add to order'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
