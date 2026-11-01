@@ -49,9 +49,10 @@ class _MovieListingState extends State<MovieListing> {
               ],
             ),
             ElevatedButton(
-              onPressed: () => print('Add to order button pressed!'), 
+              onPressed: () => print('Ticket quantity selected: $_ticketQuantity'), 
               child: Text('Add to order'),
             ),
+            Text('(Ticket Quantity: $_ticketQuantity)', style: cinemaBodyStyle)
           ],
         ),
       ),
