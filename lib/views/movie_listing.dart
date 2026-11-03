@@ -49,7 +49,7 @@ class _MovieListingState extends State<MovieListing> {
             ),
             const SizedBox(height: 5),
             Text(
-              'A 1999 science fiction action film directed by the Wachowskis', 
+              'A 1999 science fiction action film directed by the Wachowskis.', 
               style: movieBodyStyle,
             ),
             const SizedBox(height: 40),
