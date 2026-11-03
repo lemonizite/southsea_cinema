@@ -40,8 +40,15 @@ class _MovieListingState extends State<MovieListing> {
       drawer: const NavDrawer(),
       body: Column(
           children: [
-            Text('The Matrix (1999)', style: cinemaBodyStyle),
-            Text('A 1999 science fiction action film directed by the Wachowskis', style: cinemaBodyStyle),
+            Text(
+              'The Matrix (1999)', 
+              style: movieHeaderStyle,
+            ),
+            
+            Text(
+              'A 1999 science fiction action film directed by the Wachowskis', 
+              style: movieBodyStyle,
+            ),
             DropdownMenu<int>(
               onSelected: (int? value) => _setQuantity(value),
               dropdownMenuEntries: [
@@ -56,8 +63,8 @@ class _MovieListingState extends State<MovieListing> {
               onPressed: () => _setBookingMessage(), 
               child: Text('Add to order'),
             ),
-            Text('(Ticket Quantity: $_ticketQuantity)', style: cinemaBodyStyle),
-            Text(_bookingMessage, style: cinemaBodyStyle),
+            Text('(Ticket Quantity: $_ticketQuantity)', style: movieBodyStyle),
+            Text(_bookingMessage, style: movieBodyStyle),
           ],
         ),
       );
