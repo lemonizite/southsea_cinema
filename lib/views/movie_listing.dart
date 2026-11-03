@@ -41,6 +41,7 @@ class _MovieListingState extends State<MovieListing> {
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               'The Matrix (1999)', 
@@ -51,8 +52,16 @@ class _MovieListingState extends State<MovieListing> {
               'A 1999 science fiction action film directed by the Wachowskis', 
               style: movieBodyStyle,
             ),
-            const SizedBox(height: 5),
+            const SizedBox(height: 40),
             DropdownMenu<int>(
+              inputDecorationTheme: InputDecorationTheme(
+                fillColor: cinemaFontWhite,
+                filled: true,
+              ),
+              textStyle: const TextStyle(color: cinemaBackground),
+              menuStyle: MenuStyle(
+                backgroundColor: WidgetStateProperty.all(cinemaFontWhite),
+              ),
               onSelected: (int? value) => _setQuantity(value),
               dropdownMenuEntries: [
                 DropdownMenuEntry(value: 1, label: '1'),
@@ -64,9 +73,9 @@ class _MovieListingState extends State<MovieListing> {
             ),
             const SizedBox(height: 15),
             ElevatedButton(
-              style: movieButtonStyle,
+              style: movieAddOrderButtonStyle,
               onPressed: () => _setBookingMessage(), 
-              child: const Text('Add to order'),
+              child: const Text('ADD TO ORDER'),
             ),
             const SizedBox(height: 5),
             Text('(Ticket Quantity: $_ticketQuantity)', style: movieBodyStyle),

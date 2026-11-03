@@ -21,7 +21,7 @@ const TextStyle cinemaHeaderStyle = TextStyle(
 
 const TextStyle movieHeaderStyle = TextStyle(
   color: cinemaFontWhite,
-  fontSize: 14,
+  fontSize: 20,
 );
 
 const TextStyle movieBodyStyle = TextStyle(
@@ -29,7 +29,9 @@ const TextStyle movieBodyStyle = TextStyle(
   fontSize: 12,
 );
 
-final ButtonStyle movieButtonStyle = ElevatedButton.styleFrom(
+final ButtonStyle movieAddOrderButtonStyle = ElevatedButton.styleFrom(
+  textStyle: const TextStyle(fontSize: 12),
+  padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
   backgroundColor: cinemaBrand,
   foregroundColor: cinemaFontWhite,
   shape: const RoundedRectangleBorder(
