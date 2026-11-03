@@ -60,6 +60,7 @@ class _MovieListingState extends State<MovieListing> {
               ],
             ),
             ElevatedButton(
+              style: movieButtonStyle,
               onPressed: () => _setBookingMessage(), 
               child: Text('Add to order'),
             ),

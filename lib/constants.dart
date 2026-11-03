@@ -29,6 +29,10 @@ const TextStyle movieBodyStyle = TextStyle(
   fontSize: 12,
 );
 
-const ButtonStyle movieButtonStyle = ButtonStyle(
-  
+final ButtonStyle movieButtonStyle = ElevatedButton.styleFrom(
+  backgroundColor: cinemaBrand,
+  foregroundColor: cinemaFontWhite,
+  shape: const RoundedRectangleBorder(
+    borderRadius: BorderRadius.zero,
+  ),
 );
