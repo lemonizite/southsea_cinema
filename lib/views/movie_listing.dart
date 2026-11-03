@@ -38,17 +38,20 @@ class _MovieListingState extends State<MovieListing> {
         elevation: 0,
       ),
       drawer: const NavDrawer(),
-      body: Column(
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
           children: [
             Text(
               'The Matrix (1999)', 
               style: movieHeaderStyle,
             ),
-            
+            const SizedBox(height: 5),
             Text(
               'A 1999 science fiction action film directed by the Wachowskis', 
               style: movieBodyStyle,
             ),
+            const SizedBox(height: 5),
             DropdownMenu<int>(
               onSelected: (int? value) => _setQuantity(value),
               dropdownMenuEntries: [
@@ -59,15 +62,19 @@ class _MovieListingState extends State<MovieListing> {
                 DropdownMenuEntry(value: 5, label: '5'),
               ],
             ),
+            const SizedBox(height: 15),
             ElevatedButton(
               style: movieButtonStyle,
               onPressed: () => _setBookingMessage(), 
-              child: Text('Add to order'),
+              child: const Text('Add to order'),
             ),
+            const SizedBox(height: 5),
             Text('(Ticket Quantity: $_ticketQuantity)', style: movieBodyStyle),
+            const SizedBox(height: 5),
             Text(_bookingMessage, style: movieBodyStyle),
           ],
         ),
-      );
+      ),
+    );
   }
 }
