@@ -16,3 +16,25 @@ const TextStyle cinemaHeaderStyle = TextStyle(
   fontSize: 18,
   fontWeight: FontWeight.bold,
 );
+
+//-MOVIE-STYLES-------------------------------------------------
+
+const TextStyle movieHeaderStyle = TextStyle(
+  color: cinemaFontWhite,
+  fontSize: 20,
+);
+
+const TextStyle movieBodyStyle = TextStyle(
+  color: cinemaFontWhite,
+  fontSize: 12,
+);
+
+final ButtonStyle movieAddOrderButtonStyle = ElevatedButton.styleFrom(
+  textStyle: const TextStyle(fontSize: 12),
+  padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+  backgroundColor: cinemaBrand,
+  foregroundColor: cinemaFontWhite,
+  shape: const RoundedRectangleBorder(
+    borderRadius: BorderRadius.zero,
+  ),
+);
