@@ -54,7 +54,7 @@ class _MovieListingState extends State<MovieListing> {
             ),
             const SizedBox(height: 40),
             LayoutBuilder(builder: (context, constraints) {
-              if (constraints.maxWidth > 600) {
+              if (constraints.maxWidth > 450) {
                 return Row(children: [
                   DropdownMenu<int>(
                     inputDecorationTheme: InputDecorationTheme(
