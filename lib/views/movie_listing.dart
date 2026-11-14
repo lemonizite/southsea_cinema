@@ -16,16 +16,16 @@ class _MovieListingState extends State<MovieListing> {
   String _bookingMessage = '';
 
   void _setQuantity(int? value) {
-    if(value != null) {
+    if (value != null) {
       setState(() => _ticketQuantity = value);
-    }
-    else {
+    } else {
       throw FormatException('Null value selected!');
     }
   }
 
   void _setBookingMessage() {
-    setState(() => _bookingMessage = 'Added $_ticketQuantity tickets to order.');
+    setState(
+        () => _bookingMessage = 'Added $_ticketQuantity tickets to order.');
   }
 
   @override
@@ -44,37 +44,68 @@ class _MovieListingState extends State<MovieListing> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'The Matrix (1999)', 
+              'The Matrix (1999)',
               style: movieHeaderStyle,
             ),
             const SizedBox(height: 5),
             Text(
-              'A 1999 science fiction action film directed by the Wachowskis.', 
+              'A 1999 science fiction action film directed by the Wachowskis.',
               style: movieBodyStyle,
             ),
             const SizedBox(height: 40),
-            DropdownMenu<int>(
-              inputDecorationTheme: InputDecorationTheme(
-                fillColor: cinemaFontWhite,
-                filled: true,
-              ),
-              textStyle: const TextStyle(color: cinemaBackground),
-              menuStyle: MenuStyle(
-                backgroundColor: WidgetStateProperty.all(cinemaFontWhite),
-              ),
-              onSelected: (int? value) => _setQuantity(value),
-              dropdownMenuEntries: [
-                DropdownMenuEntry(value: 1, label: '1'),
-                DropdownMenuEntry(value: 2, label: '2'),
-                DropdownMenuEntry(value: 3, label: '3'),
-                DropdownMenuEntry(value: 4, label: '4'),
-                DropdownMenuEntry(value: 5, label: '5'),
-              ],
-            ),
+            LayoutBuilder(builder: (context, constraints) {
+              if (constraints.maxWidth > 600) {
+                return Row(children: [
+                  DropdownMenu<int>(
+                    inputDecorationTheme: InputDecorationTheme(
+                      fillColor: cinemaFontWhite,
+                      filled: true,
+                    ),
+                    textStyle: const TextStyle(color: cinemaBackground),
+                    menuStyle: MenuStyle(
+                      backgroundColor: WidgetStateProperty.all(cinemaFontWhite),
+                    ),
+                    onSelected: (int? value) => _setQuantity(value),
+                    dropdownMenuEntries: [
+                      DropdownMenuEntry(value: 1, label: '1'),
+                      DropdownMenuEntry(value: 2, label: '2'),
+                      DropdownMenuEntry(value: 3, label: '3'),
+                      DropdownMenuEntry(value: 4, label: '4'),
+                      DropdownMenuEntry(value: 5, label: '5'),
+                    ],
+                  ),
+                  const SizedBox(width: 5),
+                  Text('Adult (7.50)', style: movieBodyStyle),
+                ]);
+              } else {
+                return Column(children: [
+                  DropdownMenu<int>(
+                    inputDecorationTheme: InputDecorationTheme(
+                      fillColor: cinemaFontWhite,
+                      filled: true,
+                    ),
+                    textStyle: const TextStyle(color: cinemaBackground),
+                    menuStyle: MenuStyle(
+                      backgroundColor: WidgetStateProperty.all(cinemaFontWhite),
+                    ),
+                    onSelected: (int? value) => _setQuantity(value),
+                    dropdownMenuEntries: [
+                      DropdownMenuEntry(value: 1, label: '1'),
+                      DropdownMenuEntry(value: 2, label: '2'),
+                      DropdownMenuEntry(value: 3, label: '3'),
+                      DropdownMenuEntry(value: 4, label: '4'),
+                      DropdownMenuEntry(value: 5, label: '5'),
+                    ],
+                  ),
+                  const SizedBox(height: 5),
+                  Text('Adult (7.50)', style: movieBodyStyle),
+                ]);
+              }
+            }),
             const SizedBox(height: 15),
             ElevatedButton(
               style: movieAddOrderButtonStyle,
-              onPressed: () => _setBookingMessage(), 
+              onPressed: () => _setBookingMessage(),
               child: const Text('ADD TO ORDER'),
             ),
             const SizedBox(height: 5),
