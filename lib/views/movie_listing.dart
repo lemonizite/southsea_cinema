@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
+import 'package:southsea_cinema/models/movie.dart';
 
 class MovieListing extends StatefulWidget {
-  const MovieListing({super.key});
+  final Movie movie;
+  const MovieListing({super.key, required this.movie});
 
   @override
   State<MovieListing> createState() {
@@ -44,12 +46,12 @@ class _MovieListingState extends State<MovieListing> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'The Matrix (1999)',
+              widget.movie.title,
               style: movieHeaderStyle,
             ),
             const SizedBox(height: 5),
             Text(
-              'A 1999 science fiction action film directed by the Wachowskis.',
+              widget.movie.synopsis,
               style: movieBodyStyle,
             ),
             const SizedBox(height: 40),
