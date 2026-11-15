@@ -38,3 +38,15 @@ final ButtonStyle movieAddOrderButtonStyle = ElevatedButton.styleFrom(
     borderRadius: BorderRadius.zero,
   ),
 );
+
+//-MOVIE-STYLES-------------------------------------------------
+
+const TextStyle cardHeaderStyle = TextStyle(
+  color: cinemaBackground,
+  fontSize: 20,
+);
+
+const TextStyle cardBodyStyle = TextStyle(
+  color: cinemaBackground,
+  fontSize: 12,
+);
