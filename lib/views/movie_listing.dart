@@ -119,6 +119,7 @@ class _MovieListingState extends State<MovieListing> {
                       backgroundColor: WidgetStateProperty.all(cinemaFontWhite),
                     ),
                     onSelected: (int? value) => _setQuantity(value),
+                    initialSelection: 1,
                     dropdownMenuEntries: [
                       DropdownMenuEntry(value: 1, label: '1'),
                       DropdownMenuEntry(value: 2, label: '2'),
@@ -126,6 +127,7 @@ class _MovieListingState extends State<MovieListing> {
                       DropdownMenuEntry(value: 4, label: '4'),
                       DropdownMenuEntry(value: 5, label: '5'),
                     ],
+                    requestFocusOnTap: false,
                   ),
                   const SizedBox(width: 5),
                   Text(
@@ -144,6 +146,7 @@ class _MovieListingState extends State<MovieListing> {
                       backgroundColor: WidgetStateProperty.all(cinemaFontWhite),
                     ),
                     onSelected: (int? value) => _setQuantity(value),
+                    initialSelection: 1,
                     dropdownMenuEntries: [
                       DropdownMenuEntry(value: 1, label: '1'),
                       DropdownMenuEntry(value: 2, label: '2'),
@@ -151,6 +154,7 @@ class _MovieListingState extends State<MovieListing> {
                       DropdownMenuEntry(value: 4, label: '4'),
                       DropdownMenuEntry(value: 5, label: '5'),
                     ],
+                    requestFocusOnTap: false,
                   ),
                   const SizedBox(height: 5),
                   Text('Adult (7.50)', style: movieBodyStyle),
