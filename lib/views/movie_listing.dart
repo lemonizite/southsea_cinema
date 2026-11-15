@@ -45,16 +45,67 @@ class _MovieListingState extends State<MovieListing> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              widget.movie.title,
-              style: movieHeaderStyle,
+            Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Image.asset(
+                widget.movie.posterImagePath,
+                width: 160,
+                height: 240,
+                fit: BoxFit.cover,
+              ),
+              SizedBox(
+                width: 32,
+              ),
+              Expanded(
+                  child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 16,
+                  ),
+                  Row(
+                    children: [
+                      Flexible(
+                        child: Text(
+                          widget.movie.title,
+                          style: movieHeaderStyle,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 16,
+                      ),
+                      Text(
+                        widget.movie.ageRating,
+                        style: movieBodyStyle,
+                      ),
+                    ],
+                  ),
+                  Padding(
+                      padding: const EdgeInsets.only(left: 4.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: 4,
+                          ),
+                          Text(
+                            widget.movie.synopsis,
+                            style: movieBodyStyle,
+                          ),
+                          SizedBox(
+                            height: 4,
+                          ),
+                        ],
+                      )),
+                  Text(
+                    'Screening: ${widget.movie.screeningTime}',
+                    style: movieBodyStyle,
+                  ),
+                ],
+              )),
+            ]),
+            SizedBox(
+              height: 32,
             ),
-            const SizedBox(height: 5),
-            Text(
-              widget.movie.synopsis,
-              style: movieBodyStyle,
-            ),
-            const SizedBox(height: 40),
             LayoutBuilder(builder: (context, constraints) {
               if (constraints.maxWidth > 450) {
                 return Row(children: [

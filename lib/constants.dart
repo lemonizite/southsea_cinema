@@ -39,7 +39,7 @@ final ButtonStyle movieAddOrderButtonStyle = ElevatedButton.styleFrom(
   ),
 );
 
-//-MOVIE-STYLES-------------------------------------------------
+//-CARD-STYLES-------------------------------------------------
 
 const TextStyle cardHeaderStyle = TextStyle(
   color: cinemaBackground,
