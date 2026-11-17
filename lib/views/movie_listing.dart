@@ -157,7 +157,9 @@ class _MovieListingState extends State<MovieListing> {
                     requestFocusOnTap: false,
                   ),
                   const SizedBox(height: 5),
-                  Text('Adult (7.50)', style: movieBodyStyle),
+                  Text(
+                      'Adult: (£${widget.movie.ticketPrice.toStringAsFixed(2)})',
+                      style: movieBodyStyle),
                 ]);
               }
             }),
