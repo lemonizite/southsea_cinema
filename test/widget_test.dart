@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/main.dart';
 import 'package:southsea_cinema/views/home_view.dart';
+import 'package:southsea_cinema/views/movie_listing.dart';
 
 void main() {
   group('App display tests', () {
@@ -16,6 +17,22 @@ void main() {
       expect(find.byType(ListView), findsOneWidget);
       expect(find.text('The Matrix (1999)'), findsOneWidget);
       expect(find.byType(ElevatedButton), findsNWidgets(3));
+    });
+    testWidgets(
+        'tapping a booking button opens MovieListing with selected film',
+        (WidgetTester tester) async {
+      await tester.pumpWidget(const SouthseaCinemaApp());
+      await tester.tap(find.text('ADD TO ORDER').first);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(MovieListing), findsOneWidget);
+      expect(find.text('The Matrix (1999)'), findsOneWidget);
+
+      // here tap the booking button on this MovieListing page, check feedback
+      await tester.tap(find.text('ADD TO ORDER').first);
+      await tester.pump();
+
+      expect(find.text('Added 1 tickets to order.'), findsOneWidget);
     });
   });
 }
