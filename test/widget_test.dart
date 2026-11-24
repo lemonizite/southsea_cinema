@@ -33,6 +33,20 @@ void main() {
       await tester.pump();
 
       expect(find.text('Added 1 tickets to order.'), findsOneWidget);
+
+      // test second movie
+      Navigator.of(tester.element(find.byType(MovieListing))).pop();
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('ADD TO ORDER').at(1));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Resident Evil (2026)'), findsOneWidget);
+      expect(find.text(''), findsOneWidget);
+
+      await tester.tap(find.text('ADD TO ORDER').first);
+      await tester.pump();
+
+      expect(find.text('Added 1 tickets to order.'), findsOneWidget);
     });
   });
 }
